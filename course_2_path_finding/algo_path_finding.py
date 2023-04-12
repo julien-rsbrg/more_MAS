@@ -3,7 +3,7 @@ import networkx as nx
 import numpy as np
 
 # from this library
-import course_1_path_finding.grid_space_partitioning as grd_prt
+import course_2_path_finding.grid_space_partitioning as grd_prt
 
 
 def path_finding_djisktra(graph: nx.Graph, start_node, end_node):
