@@ -37,8 +37,8 @@ def check_available(env, graph):
     for node_id, node_data in graph.nodes.data():
         node_coords = node_data["coords"]
 
-        available[node_id] = not (env.is_in_an_object(
-            node_coords[0:1], node_coords[1:2]))
+        available[node_id] = not (env.points_are_in_an_object(
+            [node_coords]))
     nx.set_node_attributes(graph, available, "available")
 
 
@@ -94,8 +94,8 @@ def color_path_and_graph(env, graph, path):
     color = {}
     for node_id, node_data in graph.nodes.data():
         node_coords = node_data["coords"]
-        color[node_id] = "red" if env.is_in_an_object(
-            node_coords[0:1], node_coords[1:2]) else "blue"
+        color[node_id] = "red" if env.points_are_in_an_object(
+            [node_coords]) else "blue"
         if node_id in path:
             color[node_id] = "green"
     nx.set_node_attributes(graph, color, "color")
